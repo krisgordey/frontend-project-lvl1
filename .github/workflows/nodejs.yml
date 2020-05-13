@@ -1,5 +1,5 @@
 # Name of workflow
-name: Node CI
+name: Node.js CI
 
 # Trigger the workflow on push
 on:
@@ -27,13 +27,10 @@ jobs:
             with:
               node-version: ${{ matrix.node-version }}
           - name: npm install
-            # Install and build project
             run: |
               make install
-            # Add environment variables
             env:
               CI: true
           - name: Run linter
-            # Run Linter
             run: |
               make lint
