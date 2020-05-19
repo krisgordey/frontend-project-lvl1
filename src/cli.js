@@ -14,8 +14,9 @@ function isWrongAnswer(number, answer) {
 
 function getRandomInRangeArr(min, max, count) {
   const nums = [];
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < count;) {
     nums.push(Math.floor(Math.random() * (max - min + 1)) + min);
+    i += 1;
   }
   return nums;
 }
@@ -26,17 +27,17 @@ function greeting() {
   return userName;
 }
 function game(nums, name) {
-  for (const value of nums) {
-    const yourAnswer = readlineSync.question(`Question: ${value} `);
-    if (isWrongAnswer(value, yourAnswer)) {
-      console.log(`${yourAnswer} is ${value} wrong answer ;(. Correct answer was ${rightAnswer(value)}.`);
+  for (let it = 0; it < nums.length;) {
+    const yourAnswer = readlineSync.question(`Question: ${nums[it]} `);
+    if (isWrongAnswer(nums[it], yourAnswer)) {
+      console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${rightAnswer(nums[it])}.`);
       console.log(`Let's try again, ${name}!`);
       return;
     }
     console.log('Correct!');
+    it += 1;
   }
-  console.log(`Congratulations, ${name}`);
+  console.log(`Congratulations, ${name}!`);
 }
-
 
 export { greeting, game, getRandomInRangeArr };
