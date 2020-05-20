@@ -1,12 +1,10 @@
 #!/usr/bin/env node
-import { game, greeting, getRandomInRangeArr } from '../src/cli.js';
+import { gameBrainEven } from '../src/cli.js';
+import { welcome, greeting, getRandomInRangeArr } from '../src/index.js';
 
-const minNum = 1;
-const maxNum = 10;
 const countNums = 3;
-const arr = getRandomInRangeArr(minNum, maxNum, countNums);
+const arr = getRandomInRangeArr(countNums);
 
-console.log('Welcome to the Brain Games!');
+welcome();
 const name = greeting();
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
-game(arr, name);
+gameBrainEven(arr, name);

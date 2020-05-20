@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { getRandomInRange, randomInteger } from './index.js';
 
 function isEven(number) {
   return number % 2 === 0;
@@ -12,32 +13,54 @@ function isWrongAnswer(number, answer) {
   return answer !== rightAnswer(number);
 }
 
-function getRandomInRangeArr(min, max, count) {
-  const nums = [];
-  for (let i = 0; i < count;) {
-    nums.push(Math.floor(Math.random() * (max - min + 1)) + min);
-    i += 1;
-  }
-  return nums;
-}
-
-function greeting() {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hi ${userName}!`);
-  return userName;
-}
-function game(nums, name) {
-  for (let it = 0; it < nums.length;) {
-    const yourAnswer = readlineSync.question(`Question: ${nums[it]} `);
+function gameBrainEven(nums, name) {
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  for (let it = 0; it < nums.length; it += 1) {
+    console.log(`Question: ${nums[it]} `);
+    const yourAnswer = readlineSync.question('Your answer: ');
     if (isWrongAnswer(nums[it], yourAnswer)) {
       console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${rightAnswer(nums[it])}.`);
       console.log(`Let's try again, ${name}!`);
       return;
     }
     console.log('Correct!');
-    it += 1;
   }
   console.log(`Congratulations, ${name}!`);
 }
 
-export { greeting, game, getRandomInRangeArr };
+function sum(num1, num2) {
+  return num1 + num2;
+}
+function sub(num1, num2) {
+  return num1 - num2;
+}
+function multiple(num1, num2) {
+  return num1 * num2;
+}
+function getRandomIndex(arr) {
+  return randomInteger(0, arr.length - 1);
+}
+const operatorsArr = ['+', '-', '*'];
+const functionsArr = [sum, sub, multiple];
+
+function gameBrainCalc(count, name) {
+  console.log('What is the result of the expression?');
+  for (let i = 0; i < count; i += 1) {
+    const randomIndex = getRandomIndex(operatorsArr);
+    const operator = operatorsArr[randomIndex];
+    const expression = functionsArr[randomIndex];
+    const num1 = getRandomInRange();
+    const num2 = getRandomInRange();
+    console.log(`Question: ${num1} ${operator} ${num2}`);
+    const yourAnswer = readlineSync.question('Your answer: ');
+    if (expression(num1, num2) !== +yourAnswer) {
+      console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${expression(num1, num2)}.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
+    }
+    console.log('Correct!');
+  }
+  console.log(`Congratulations, ${name}!`);
+}
+
+export { gameBrainEven, gameBrainCalc };
