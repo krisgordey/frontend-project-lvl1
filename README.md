@@ -18,3 +18,9 @@ Brain-calc: success game
 
 Brain-calc: losing game
 [![asciicast](https://asciinema.org/a/cqHds1bCAEMwTQXfCUqK3HrCv.svg)](https://asciinema.org/a/cqHds1bCAEMwTQXfCUqK3HrCv)
+
+Brain-gcd: success game
+[![asciicast](https://asciinema.org/a/4QCiYJwJLd0IfLMq17axW7SkR.svg)](https://asciinema.org/a/4QCiYJwJLd0IfLMq17axW7SkR)
+
+Brain-gcd: losing game
+[![asciicast](https://asciinema.org/a/wTaoka22vgkKsHYVwSNXAJXuH.svg)](https://asciinema.org/a/wTaoka22vgkKsHYVwSNXAJXuH)
