@@ -24,3 +24,9 @@ Brain-gcd: success game
 
 Brain-gcd: losing game
 [![asciicast](https://asciinema.org/a/wTaoka22vgkKsHYVwSNXAJXuH.svg)](https://asciinema.org/a/wTaoka22vgkKsHYVwSNXAJXuH)
+
+Brain-progression: success game
+[![asciicast](https://asciinema.org/a/2pYkJN7b1QZNgfjDU4MzeJ0uE.svg)](https://asciinema.org/a/2pYkJN7b1QZNgfjDU4MzeJ0uE)
+
+Brain-progression: losing game
+[![asciicast](https://asciinema.org/a/4q6OpTU1pyqVgs9ronZrkxqRV.svg)](https://asciinema.org/a/4q6OpTU1pyqVgs9ronZrkxqRV)

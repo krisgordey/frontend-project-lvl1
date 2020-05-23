@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { gameBrainEven } from '../src/cli.js';
+import gameBrainEven from '../src/games/brain-even.js';
 import { welcome, greeting, getRandomInRangeArr } from '../src/index.js';
 
 const countNums = 3;
