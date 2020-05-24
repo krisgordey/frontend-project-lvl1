@@ -30,3 +30,9 @@ Brain-progression: success game
 
 Brain-progression: losing game
 [![asciicast](https://asciinema.org/a/4q6OpTU1pyqVgs9ronZrkxqRV.svg)](https://asciinema.org/a/4q6OpTU1pyqVgs9ronZrkxqRV)
+
+Brain-prime: success game
+[![asciicast](https://asciinema.org/a/3pkPJ30OqS7kw7kwh29agbOOJ.svg)](https://asciinema.org/a/3pkPJ30OqS7kw7kwh29agbOOJ)
+
+Brain-prime: losing game
+[![asciicast](https://asciinema.org/a/NViBPWhZo5pGf1EdX1tTTIyby.svg)](https://asciinema.org/a/NViBPWhZo5pGf1EdX1tTTIyby)
