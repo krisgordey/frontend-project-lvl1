@@ -1,34 +1,31 @@
 import readlineSync from 'readline-sync';
+import { ROUNDS } from './constants.js';
 
-function welcome() {
+function engine(game, task) {
   console.log('Welcome to the Brain Games!');
-}
 
-function randomInteger(min, max) {
-  // получить случайное число от min до max+1
-  const rand = min + Math.random() * (max + 1 - min);
-  return Math.floor(rand);
-}
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hi ${name}!`);
 
-function getRandomInRange() {
-  return Math.floor(Math.random() * 100) + 1;
-}
+  console.log(task);
 
-function getRandomInRangeArr(count) {
-  const nums = [];
-  for (let i = 0; i < count;) {
-    nums.push(getRandomInRange());
-    i += 1;
+  for (let i = 0; i < ROUNDS; i += 1) {
+    const [question, answer] = game();
+
+    console.log(`Question: ${question}`);
+
+    const userAnswer = readlineSync.question('Your answer: ');
+
+    if (userAnswer !== answer) {
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${answer}.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
+    }
+
+    console.log('Correct!');
   }
-  return nums;
+
+  console.log(`Congratulations, ${name}!`);
 }
 
-function greeting() {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hi ${userName}!`);
-  return userName;
-}
-
-export {
-  greeting, getRandomInRangeArr, getRandomInRange, randomInteger, welcome,
-};
+export default engine;

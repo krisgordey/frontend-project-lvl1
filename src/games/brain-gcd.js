@@ -1,5 +1,5 @@
-import readlineSync from 'readline-sync';
-import { getRandomInRange } from '../index.js';
+import engine from '../index.js';
+import getRandomInteger from '../random-integer.js';
 
 function getGcd(n, m) {
   if (m > 0) {
@@ -9,22 +9,16 @@ function getGcd(n, m) {
   return n;
 }
 
-function gameBrainGcd(countRounds, name) {
-  console.log('Find the greatest common divisor of given numbers.');
-  for (let i = 0; i < countRounds; i += 1) {
-    const num1 = getRandomInRange();
-    const num2 = getRandomInRange();
-    console.log(`Question: ${num1} ${num2}`);
-    const yourAnswer = readlineSync.question('Your answer: ');
-    const result = getGcd(num1, num2);
-    if (result !== +yourAnswer) {
-      console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${result}.`);
-      console.log(`Let's try again, ${name}!`);
-      return;
-    }
-    console.log('Correct!');
-  }
-  console.log(`Congratulations, ${name}!`);
+function playGameBrainGcd() {
+  const num1 = getRandomInteger();
+  const num2 = getRandomInteger();
+  const question = `${num1} ${num2}`;
+  const answer = `${getGcd(num1, num2)}`;
+
+  return [question, answer];
 }
 
-export default gameBrainGcd;
+export default function runBrainGcdGame() {
+  const task = 'Find the greatest common divisor of given numbers.';
+  engine(playGameBrainGcd, task);
+}

@@ -1,33 +1,25 @@
-import readlineSync from 'readline-sync';
-import { getRandomInRange } from '../index.js';
+import engine from '../index.js';
+import getRandomInteger from '../random-integer.js';
 
-function isPrime(num) {
+function checkIsPrime(num) {
   for (let i = 2, s = Math.sqrt(num); i <= s; i += 1) {
     if (num % i === 0) return false;
   }
   return num > 1;
 }
-function isRightAnswer(num) {
-  return isPrime(num) ? 'yes' : 'no';
+function getRightAnswer(num) {
+  return checkIsPrime(num) ? 'yes' : 'no';
 }
 
-function gameBrainPrime(name, countRounds) {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  for (let i = 0; i < countRounds; i += 1) {
-    const number = getRandomInRange();
-    console.log(number);
-    const yourAnswer = readlineSync.question('Your answer: ');
-    const rightAnswer = isRightAnswer(number);
-    console.log(yourAnswer);
+function playGameBrainPrime() {
+  const randomNumber = getRandomInteger();
+  const question = `${randomNumber}`;
+  const answer = getRightAnswer(randomNumber);
 
-    if (yourAnswer !== rightAnswer) {
-      console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
-      console.log(`Let's try again, ${name}!`);
-      return;
-    }
-    console.log('Correct!');
-  }
-  console.log(`Congratulations, ${name}!`);
+  return [question, answer];
 }
 
-export default gameBrainPrime;
+export default function runBrainPrimeGame() {
+  const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  engine(playGameBrainPrime, task);
+}

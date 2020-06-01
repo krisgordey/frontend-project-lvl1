@@ -1,5 +1,6 @@
-import readlineSync from 'readline-sync';
-import { getRandomInRange, randomInteger } from '../index.js';
+import getRandomInteger from '../random-integer.js';
+import engine from '../index.js';
+import { PROGRESSION_LENGTH } from '../constants.js';
 
 function getProgression(a, count, step) {
   const progression = [];
@@ -10,39 +11,34 @@ function getProgression(a, count, step) {
 }
 
 function getRandomIndex(length) {
-  return randomInteger(0, length);
+  return getRandomInteger(0, length);
 }
 
-function getRightAnswer(index, arr) {
-  return arr[index];
+function getAnswer(index, arr) {
+  return `${arr[index]}`;
 }
 
 function getQuestion(arr, index) {
-  arr.splice(index, 1, '..');
-  return arr.join();
+  const newArr = [...arr];
+  newArr.splice(index, 1, '..');
+
+  return newArr.join(' ');
 }
 
-function gameBrainProgression(name, count, countRounds) {
-  console.log('What number is missing in the progression?');
 
-  for (let i = 0; i < countRounds; i += 1) {
-    const a = getRandomInRange();
-    const step = getRandomInRange();
-    const progression = getProgression(a, count, step);
-    const index = getRandomIndex(progression.length);
-    const rightAnswer = getRightAnswer(index, progression);
+function playGameBrainProgression() {
+  const startNumber = getRandomInteger();
+  const step = getRandomInteger();
+  const progression = getProgression(startNumber, PROGRESSION_LENGTH, step);
+  const missingElIndex = getRandomIndex(progression.length);
 
-    console.log(getQuestion(progression, index));
-    const yourAnswer = readlineSync.question('Your answer: ');
+  const question = getQuestion(progression, missingElIndex);
+  const answer = getAnswer(missingElIndex, progression);
 
-    if (+yourAnswer !== rightAnswer) {
-      console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
-      console.log(`Let's try again, ${name}!`);
-      return;
-    }
-    console.log('Correct!');
-  }
-  console.log(`Congratulations, ${name}!`);
+  return [question, answer];
 }
 
-export default gameBrainProgression;
+export default function runBrainProgressionGame() {
+  const task = 'What number is missing in the progression?';
+  engine(playGameBrainProgression, task);
+}

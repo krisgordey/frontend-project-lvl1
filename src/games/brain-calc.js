@@ -1,39 +1,34 @@
-import readlineSync from 'readline-sync';
-import { getRandomInRange, randomInteger } from '../index.js';
+import getRandomInteger from '../random-integer.js';
+import engine from '../index.js';
 
-function sum(num1, num2) {
+function getSum(num1, num2) {
   return num1 + num2;
 }
-function sub(num1, num2) {
+function getSubtraction(num1, num2) {
   return num1 - num2;
 }
-function multiple(num1, num2) {
+function getMultiple(num1, num2) {
   return num1 * num2;
 }
 function getRandomIndex(arr) {
-  return randomInteger(0, arr.length - 1);
+  return getRandomInteger(0, arr.length - 1);
 }
 const operatorsArr = ['+', '-', '*'];
-const functionsArr = [sum, sub, multiple];
+const functionsArr = [getSum, getSubtraction, getMultiple];
 
-function gameBrainCalc(countRounds, name) {
-  console.log('What is the result of the expression?');
-  for (let i = 0; i < countRounds; i += 1) {
-    const randomIndex = getRandomIndex(operatorsArr);
-    const operator = operatorsArr[randomIndex];
-    const expression = functionsArr[randomIndex];
-    const num1 = getRandomInRange();
-    const num2 = getRandomInRange();
-    console.log(`Question: ${num1} ${operator} ${num2}`);
-    const yourAnswer = readlineSync.question('Your answer: ');
-    if (expression(num1, num2) !== +yourAnswer) {
-      console.log(`${yourAnswer} is wrong answer ;(. Correct answer was ${expression(num1, num2)}.`);
-      console.log(`Let's try again, ${name}!`);
-      return;
-    }
-    console.log('Correct!');
-  }
-  console.log(`Congratulations, ${name}!`);
+function playGameBrainCalc() {
+  const randomIndex = getRandomIndex(operatorsArr);
+  const operator = operatorsArr[randomIndex];
+  const expression = functionsArr[randomIndex];
+  const num1 = getRandomInteger();
+  const num2 = getRandomInteger();
+  const question = `${num1} ${operator} ${num2}`;
+  const answer = `${expression(num1, num2)}`;
+
+  return [question, answer];
 }
 
-export default gameBrainCalc;
+export default function runBrainCalc() {
+  const task = 'What is the result of the expression?';
+  engine(playGameBrainCalc, task);
+}
