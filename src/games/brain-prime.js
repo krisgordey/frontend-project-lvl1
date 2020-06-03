@@ -1,4 +1,4 @@
-import engine from '../index.js';
+import runEngine from '../index.js';
 import getRandomInteger from '../random-integer.js';
 
 function checkIsPrime(num) {
@@ -11,7 +11,7 @@ function getRightAnswer(num) {
   return checkIsPrime(num) ? 'yes' : 'no';
 }
 
-function playGameBrainPrime() {
+function createBrainPrimeRound() {
   const randomNumber = getRandomInteger();
   const question = `${randomNumber}`;
   const answer = getRightAnswer(randomNumber);
@@ -21,5 +21,5 @@ function playGameBrainPrime() {
 
 export default function runBrainPrimeGame() {
   const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  engine(playGameBrainPrime, task);
+  runEngine(createBrainPrimeRound, task);
 }

@@ -1,4 +1,4 @@
-import engine from '../index.js';
+import runEngine from '../index.js';
 import getRandomInteger from '../random-integer.js';
 
 
@@ -10,7 +10,7 @@ function getRightAnswer(number) {
   return checkIsEven(number) ? 'yes' : 'no';
 }
 
-function playGameBrainEven() {
+function createBrainEvenRound() {
   const number = getRandomInteger();
   const question = `${number} `;
   const answer = getRightAnswer(number);
@@ -20,5 +20,5 @@ function playGameBrainEven() {
 
 export default function runBrainEvenGame() {
   const task = 'Answer "yes" if the number is even, otherwise answer "no".';
-  engine(playGameBrainEven, task);
+  runEngine(createBrainEvenRound, task);
 }

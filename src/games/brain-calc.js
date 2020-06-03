@@ -1,5 +1,5 @@
 import getRandomInteger from '../random-integer.js';
-import engine from '../index.js';
+import runEngine from '../index.js';
 
 function getSum(num1, num2) {
   return num1 + num2;
@@ -16,7 +16,7 @@ function getRandomIndex(arr) {
 const operatorsArr = ['+', '-', '*'];
 const functionsArr = [getSum, getSubtraction, getMultiple];
 
-function playGameBrainCalc() {
+function createBrainCalcRound() {
   const randomIndex = getRandomIndex(operatorsArr);
   const operator = operatorsArr[randomIndex];
   const expression = functionsArr[randomIndex];
@@ -30,5 +30,5 @@ function playGameBrainCalc() {
 
 export default function runBrainCalc() {
   const task = 'What is the result of the expression?';
-  engine(playGameBrainCalc, task);
+  runEngine(createBrainCalcRound, task);
 }

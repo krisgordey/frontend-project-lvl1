@@ -1,4 +1,4 @@
-import engine from '../index.js';
+import runEngine from '../index.js';
 import getRandomInteger from '../random-integer.js';
 
 function getGcd(n, m) {
@@ -9,7 +9,7 @@ function getGcd(n, m) {
   return n;
 }
 
-function playGameBrainGcd() {
+function createBrainGcdRound() {
   const num1 = getRandomInteger();
   const num2 = getRandomInteger();
   const question = `${num1} ${num2}`;
@@ -20,5 +20,5 @@ function playGameBrainGcd() {
 
 export default function runBrainGcdGame() {
   const task = 'Find the greatest common divisor of given numbers.';
-  engine(playGameBrainGcd, task);
+  runEngine(createBrainGcdRound, task);
 }

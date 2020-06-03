@@ -1,5 +1,5 @@
 import getRandomInteger from '../random-integer.js';
-import engine from '../index.js';
+import runEngine from '../index.js';
 import { PROGRESSION_LENGTH } from '../constants.js';
 
 function getProgression(a, count, step) {
@@ -26,7 +26,7 @@ function getQuestion(arr, index) {
 }
 
 
-function playGameBrainProgression() {
+function CreateBrainProgressionRound() {
   const startNumber = getRandomInteger();
   const step = getRandomInteger();
   const progression = getProgression(startNumber, PROGRESSION_LENGTH, step);
@@ -40,5 +40,5 @@ function playGameBrainProgression() {
 
 export default function runBrainProgressionGame() {
   const task = 'What number is missing in the progression?';
-  engine(playGameBrainProgression, task);
+  runEngine(CreateBrainProgressionRound, task);
 }
