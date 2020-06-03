@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import { ROUNDS } from './constants.js';
 
-function runEngine(game, task) {
+function runEngine(createRound, task) {
   console.log('Welcome to the Brain Games!');
 
   const name = readlineSync.question('May I have your name? ');
@@ -10,7 +10,7 @@ function runEngine(game, task) {
   console.log(task);
 
   for (let i = 0; i < ROUNDS; i += 1) {
-    const [question, answer] = game();
+    const [question, answer] = createRound();
 
     console.log(`Question: ${question}`);
 
