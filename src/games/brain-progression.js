@@ -26,7 +26,7 @@ function getQuestion(arr, index) {
 }
 
 
-function CreateBrainProgressionRound() {
+function createBrainProgressionRound() {
   const startNumber = getRandomInteger();
   const step = getRandomInteger();
   const progression = getProgression(startNumber, PROGRESSION_LENGTH, step);
@@ -40,5 +40,5 @@ function CreateBrainProgressionRound() {
 
 export default function runBrainProgressionGame() {
   const task = 'What number is missing in the progression?';
-  runEngine(CreateBrainProgressionRound, task);
+  runEngine(createBrainProgressionRound, task);
 }
