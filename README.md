@@ -7,22 +7,22 @@ Set of console games based on Node.js
 
 ---
 
-####Installation
+#### Installation
 ```npm link```
 
 [![asciicast](https://asciinema.org/a/25lNO5UkpWD6rfLuEhFRWdXk3.svg)](https://asciinema.org/a/25lNO5UkpWD6rfLuEhFRWdXk3)
 
 
-####Uninstallation
+#### Uninstallation
 ```npm unlink```
 
 [![asciicast](https://asciinema.org/a/Q8iVH5E3yPhPApQBrwbTDSwS3.svg)](https://asciinema.org/a/Q8iVH5E3yPhPApQBrwbTDSwS3)
 
 ---
 
-##Usage
+## Usage
 
-####Brain-even
+#### Brain-even
 
 ```brain-even```
 
@@ -32,7 +32,7 @@ Brain-even: success game
 Brain-even: losing game
 [![asciicast](https://asciinema.org/a/nezVFvisyM2C2k3vxpBOKLw1a.svg)](https://asciinema.org/a/nezVFvisyM2C2k3vxpBOKLw1a)
 
-####Brain-calc
+#### Brain-calc
 
 ```brain-calc```
 
@@ -42,7 +42,7 @@ Brain-calc: success game
 Brain-calc: losing game
 [![asciicast](https://asciinema.org/a/oSCPce529SmArWy8ap05ClFsE.svg)](https://asciinema.org/a/oSCPce529SmArWy8ap05ClFsE)
 
-####Brain-gcd
+#### Brain-gcd
 
 ```brain-gcd```
 
@@ -52,7 +52,7 @@ Brain-gcd: success game
 Brain-gcd: losing game
 [![asciicast](https://asciinema.org/a/a20pgRZ6rBiLkpQuCW2yMjulw.svg)](https://asciinema.org/a/a20pgRZ6rBiLkpQuCW2yMjulw)
 
-####Brain-progression
+#### Brain-progression
 
 ```brain-progression```
 
@@ -62,7 +62,7 @@ Brain-progression: success game
 Brain-progression: losing game
 [![asciicast](https://asciinema.org/a/NAShd9rcRrNfFeSxqM80xzurH.svg)](https://asciinema.org/a/NAShd9rcRrNfFeSxqM80xzurH)
 
-####Brain-prime
+#### Brain-prime
 
 ```brain-prime```
 
