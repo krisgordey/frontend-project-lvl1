@@ -2,16 +2,12 @@ import getRandomInteger from '../random-integer.js';
 import runEngine from '../index.js';
 import { PROGRESSION_LENGTH } from '../constants.js';
 
-function getProgression(a, count, step) {
+function getProgression(start, count, step) {
   const progression = [];
-  for (let it = a; progression.length + 1 <= count; it += step) {
-    progression.push(it);
+  for (let num = start; progression.length + 1 <= count; num += step) {
+    progression.push(num);
   }
   return progression;
-}
-
-function getRandomIndex(length) {
-  return getRandomInteger(0, length);
 }
 
 function getAnswer(index, arr) {
@@ -25,12 +21,11 @@ function getQuestion(arr, index) {
   return newArr.join(' ');
 }
 
-
 function createBrainProgressionRound() {
   const startNumber = getRandomInteger();
   const step = getRandomInteger();
   const progression = getProgression(startNumber, PROGRESSION_LENGTH, step);
-  const missingElIndex = getRandomIndex(progression.length);
+  const missingElIndex = getRandomInteger(0, progression.length - 1);
 
   const question = getQuestion(progression, missingElIndex);
   const answer = getAnswer(missingElIndex, progression);

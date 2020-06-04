@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { ROUNDS } from './constants.js';
+import { ROUNDS_COUNT } from './constants.js';
 
 function runEngine(createRound, task) {
   console.log('Welcome to the Brain Games!');
@@ -9,7 +9,7 @@ function runEngine(createRound, task) {
 
   console.log(task);
 
-  for (let i = 0; i < ROUNDS; i += 1) {
+  for (let i = 0; i < ROUNDS_COUNT; i += 1) {
     const [question, answer] = createRound();
 
     console.log(`Question: ${question}`);
