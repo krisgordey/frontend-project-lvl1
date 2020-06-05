@@ -12,7 +12,9 @@ function getProgression(start, count, step) {
 
 function getQuestion(progression, missingElIndex) {
   const newProgression = [...progression];
-  return newProgression.splice(missingElIndex, 1, '..').join(' ');
+  newProgression.splice(missingElIndex, 1, '..');
+
+  return newProgression.join(' ');
 }
 
 function createBrainProgressionRound() {
