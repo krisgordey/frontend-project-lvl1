@@ -4,8 +4,8 @@ import { PROGRESSION_LENGTH } from '../constants.js';
 
 function getProgression(start, count, step) {
   const progression = [];
-  for (let num = start; progression.length + 1 <= count; num += step) {
-    progression.push(num);
+  for (let i = start; progression.length + 1 <= count; i += step) {
+    progression.push(i);
   }
   return progression;
 }

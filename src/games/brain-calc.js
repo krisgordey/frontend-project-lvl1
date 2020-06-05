@@ -11,17 +11,32 @@ function getMultiple(num1, num2) {
   return num1 * num2;
 }
 
-const operatorsAndOperations = [['+', getSum], ['-', getSubtraction], ['*', getMultiple]];
+function getOperation(operator) {
+  switch (operator) {
+    case '+':
+      return getSum;
+    case '-':
+      return getSubtraction;
+    case '*':
+      return getMultiple;
+    default:
+      throw new Error(`Operator not found: "${operator}"`);
+  }
+}
+
+const mathOperators = ['+', '-', '*'];
 
 function createBrainCalcRound() {
-  const randomIndex = getRandomInteger(0, operatorsAndOperations.length - 1);
-  const [operator, operation] = operatorsAndOperations[randomIndex];
+  const operatorIndex = getRandomInteger(0, mathOperators.length - 1);
+
+  const operator = mathOperators[operatorIndex];
+  const calculate = getOperation(operator);
 
   const num1 = getRandomInteger();
   const num2 = getRandomInteger();
 
   const question = `${num1} ${operator} ${num2}`;
-  const answer = `${operation(num1, num2)}`;
+  const answer = `${calculate(num1, num2)}`;
 
   return [question, answer];
 }
