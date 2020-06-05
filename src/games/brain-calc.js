@@ -24,12 +24,15 @@ function getOperation(operator) {
   }
 }
 
-const mathOperators = ['+', '-', '*'];
-
-function createBrainCalcRound() {
+function getRandomOperator() {
+  const mathOperators = ['+', '-', '*'];
   const operatorIndex = getRandomInteger(0, mathOperators.length - 1);
 
-  const operator = mathOperators[operatorIndex];
+  return mathOperators[operatorIndex];
+}
+
+function createBrainCalcRound() {
+  const operator = getRandomOperator();
   const calculate = getOperation(operator);
 
   const num1 = getRandomInteger();
