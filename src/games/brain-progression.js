@@ -10,15 +10,11 @@ function getProgression(start, count, step) {
   return progression;
 }
 
-function getAnswer(index, arr) {
-  return `${arr[index]}`;
-}
+function getQuestion(progression, missingElIndex) {
+  const newProgression = [...progression];
+  newProgression.splice(missingElIndex, 1, '..');
 
-function getQuestion(arr, index) {
-  const newArr = [...arr];
-  newArr.splice(index, 1, '..');
-
-  return newArr.join(' ');
+  return newProgression.join(' ');
 }
 
 function createBrainProgressionRound() {
@@ -28,7 +24,7 @@ function createBrainProgressionRound() {
   const missingElIndex = getRandomInteger(0, progression.length - 1);
 
   const question = getQuestion(progression, missingElIndex);
-  const answer = getAnswer(missingElIndex, progression);
+  const answer = `${progression[missingElIndex]}`;
 
   return [question, answer];
 }
